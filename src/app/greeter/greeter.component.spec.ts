@@ -14,6 +14,7 @@ describe('GreeterComponent', () => {
 
   const correctText = 'Hello World!';
 
+  //setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GreeterComponent]
@@ -27,6 +28,7 @@ describe('GreeterComponent', () => {
     debugElement = fixture.debugElement;
   });
 
+  //specs
   it('should create GreeterComponent', () => {
     expect(greeter).toBeTruthy();
   });

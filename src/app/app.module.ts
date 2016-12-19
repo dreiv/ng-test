@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
+import { LogClicksDirective } from './log/log-clicks.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    GreeterComponent
+    GreeterComponent,
+    LogClicksDirective
   ],
   imports: [
     BrowserModule,

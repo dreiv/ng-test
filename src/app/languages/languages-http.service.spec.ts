@@ -10,6 +10,7 @@ describe('LanguagesHttpService', () => {
   let mockBackend: any;                 // to mock Http backend responses
   const mockResponse = ["en", "de", "fr"];
 
+  //setup
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpModule],
@@ -28,6 +29,7 @@ describe('LanguagesHttpService', () => {
     });
   }));
 
+  //specs
   it('should create LanguagesHttpService', () => {
     expect(service).toBeTruthy();
   });

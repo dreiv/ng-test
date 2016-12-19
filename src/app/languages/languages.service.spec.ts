@@ -6,6 +6,7 @@ import { LanguagesService } from './languages.service';
 describe('LanguagesService', () => {
   let service: LanguagesService;    // to access properties and methods
 
+  //setup
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LanguagesService]
@@ -16,6 +17,7 @@ describe('LanguagesService', () => {
     service = s;
   }));
 
+  //specs
   it('should create LanguagesService', () => {
     expect(service).toBeTruthy();
   })
