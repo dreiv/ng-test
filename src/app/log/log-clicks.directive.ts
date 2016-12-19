@@ -5,7 +5,7 @@ import { Directive, Output, HostListener, EventEmitter } from '@angular/core';
 })
 export class LogClicksDirective {
     counter = 0;
-    @Output changes = new EventEmitter();
+    @Output() changes = new EventEmitter();
 
     @HostListener('click', ['$event.target'])
     clicked(target) {

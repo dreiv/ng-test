@@ -1,14 +1,12 @@
-/* tslint:disable:no-unused-variable */
-
-import { Component, EventEmitter, Output, DebugElement } from '@angular/core';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { TestBed, async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 import { LogClicksDirective } from './log-clicks.directive';
 
 @Component({
   selector: 'container',
   template: '<div log-clicks (changes)="changed($event)"></div>'
 })
-class TestContainer {
+class TestComponent {
   @Output() changes = new EventEmitter();
 
   changed(value) {
@@ -17,27 +15,35 @@ class TestContainer {
 }
 
 describe('LogClicksDirective', () => {
-  let fixture: ComponentFixture<TestContainer>;
-  let container: TestContainer;   // to access properties and methods
-  let domElement: any;            // to access the DOM element
-  let debugElement: DebugElement;   // testing helper
+  let fixture: ComponentFixture<TestComponent>;
+  let testComponent: TestComponent;   // to access properties and methods
+  let domElement: any;                // to access the DOM element
 
   //setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [TestContainer, LogClicksDirective]
+      declarations: [TestComponent, LogClicksDirective]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TestContainer);
-    container = fixture.componentInstance;
+    fixture = TestBed.createComponent(TestComponent);
+    testComponent = fixture.componentInstance;
     domElement = fixture.nativeElement;
-    debugElement = fixture.debugElement;
   });
 
   //specs
-  it('should create the TestContainer', () => {
-    expect(container).toBeTruthy();
+  it('should create the TestComponent', () => {
+    expect(testComponent).toBeTruthy();
   });
+
+  it('should increment the counter', fakeAsync(() => {
+    let div = domElement.querySelector('div');
+
+    testComponent.changes.subscribe(x => {
+      expect(x).toBe(1);
+    });           // set up subscriber
+    div.click();  // trigger a click on the test element
+    tick();       // execute all pending asynchronous calls
+  }));
 });
