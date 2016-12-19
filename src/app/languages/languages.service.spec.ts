@@ -4,7 +4,7 @@ import { TestBed, async, inject } from '@angular/core/testing';
 import { LanguagesService } from './languages.service';
 
 describe('LanguagesService', () => {
-  let service: LanguagesService;
+  let service: LanguagesService;    // to access properties and methods
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -20,7 +20,7 @@ describe('LanguagesService', () => {
     expect(service).toBeTruthy();
   })
 
-  it('should return the available Languages', () => {
+  it('should return the available languages', () => {
     const languages = service.get();
 
     expect(languages).toContain('en');
