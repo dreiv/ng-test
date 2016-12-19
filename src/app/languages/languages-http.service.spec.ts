@@ -2,7 +2,7 @@
 
 import { TestBed, async, inject } from '@angular/core/testing';
 import { LanguagesHttpService } from './languages-http.service';
-import { HttpModule, Response, XHRBackend } from '@angular/http';
+import { HttpModule, Response, XHRBackend, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 describe('LanguagesHttpService', () => {
@@ -24,7 +24,7 @@ describe('LanguagesHttpService', () => {
     service = _service;
     mockBackend = _mockBackend;
     mockBackend.connections.subscribe((connection: MockConnection) => {
-      connection.mockRespond(new Response({body: JSON.stringify(mockResponse)}));
+      connection.mockRespond(new Response(new ResponseOptions({body: JSON.stringify(mockResponse)})));
     });
   }));
 
