@@ -8,7 +8,7 @@ export class LanguagesHttpService {
   }
 
   get() {
-    return this.http.get('languages.json')
+    return this.http.get('api/languages.json')
       .map(response => response.json());
   }
 }
