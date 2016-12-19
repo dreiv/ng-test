@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture, fakeAsync, tick } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { APP_BASE_HREF } from '@angular/common';
 
@@ -50,11 +50,23 @@ describe('Router tests', () => {
   }));
 
   //specs
-  it('default route redirects home (async)', async(() => {
-    router.initialNavigation() // triggers default navigation
+  it('should have the default route set to home (async)', fakeAsync(() => {
+    router.initialNavigation(); // triggers default navigation
+    tick();
+    expect(location.pathname.endsWith('/home')).toBeTruthy();
+  }));
 
-    fixture.whenStable().then(() => {
-      expect(location.pathname.endsWith('/home')).toBeTruthy();
-    });
+  it('should be able to navigate to home', fakeAsync(() => {
+    router.navigate(['/home'])
+      .catch(e => console.log(e));
+    tick();
+    expect(location.pathname.endsWith('/home')).toBeTruthy();
+  }));
+
+  it('should redirect non existing urls to home', fakeAsync(() => {
+    router.navigate(['/undefined/route'])
+      .catch(e => console.log(e));
+    tick();
+    expect(location.pathname.endsWith('/home')).toBeTruthy();
   }));
 });
