@@ -23,14 +23,12 @@ describe('LogClicksDirective', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestComponent, LogClicksDirective]
-    }).compileComponents();
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(TestComponent);
+      testComponent = fixture.componentInstance;
+      domElement = fixture.nativeElement;
+    });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
-    testComponent = fixture.componentInstance;
-    domElement = fixture.nativeElement;
-  });
 
   //specs
   it('should create create an instance of TestComponent', () => {

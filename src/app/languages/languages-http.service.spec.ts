@@ -34,12 +34,12 @@ describe('LanguagesHttpService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return available languages (mocked)', async(() => {
+  it('should return available languages (mocked)', () => {
     service.get().subscribe(languages => {
       expect(languages).toContain('en');
       expect(languages).toContain('de');
       expect(languages).toContain('fr');
       expect(languages.length).toEqual(3);
     });
-  }));
+  });
 });

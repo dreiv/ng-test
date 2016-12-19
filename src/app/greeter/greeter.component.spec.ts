@@ -18,15 +18,13 @@ describe('GreeterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GreeterComponent]
-    }).compileComponents();
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(GreeterComponent);
+      greeter = fixture.componentInstance;
+      domElement = fixture.nativeElement;
+      debugElement = fixture.debugElement;
+    });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GreeterComponent);
-    greeter = fixture.componentInstance;
-    domElement = fixture.nativeElement;
-    debugElement = fixture.debugElement;
-  });
 
   //specs
   it('should create an instance of GreeterComponent', () => {
