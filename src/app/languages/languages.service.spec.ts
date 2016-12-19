@@ -10,7 +10,7 @@ describe('LanguagesService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LanguagesService]
-    });
+    }).compileComponents();
   });
 
   beforeEach(inject([LanguagesService], s => {
@@ -18,7 +18,7 @@ describe('LanguagesService', () => {
   }));
 
   //specs
-  it('should create LanguagesService', () => {
+  it('should create an instance of LanguagesService', () => {
     expect(service).toBeTruthy();
   })
 

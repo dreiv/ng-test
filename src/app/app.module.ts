@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { GreeterComponent } from './greeter/greeter.component';
 import { LogClicksDirective } from './log/log-clicks.directive';
+import { CapitalisePipe } from './pipe/capitalise.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreeterComponent,
-    LogClicksDirective
+    LogClicksDirective,
+    CapitalisePipe
   ],
   imports: [
     BrowserModule,

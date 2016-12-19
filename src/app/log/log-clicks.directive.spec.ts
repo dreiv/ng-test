@@ -33,7 +33,7 @@ describe('LogClicksDirective', () => {
   });
 
   //specs
-  it('should create the TestComponent', () => {
+  it('should create create an instance of TestComponent', () => {
     expect(testComponent).toBeTruthy();
   });
 

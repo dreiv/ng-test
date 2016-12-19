@@ -30,7 +30,7 @@ describe('LanguagesHttpService', () => {
   }));
 
   //specs
-  it('should create LanguagesHttpService', () => {
+  it('should create an instance of LanguagesHttpService', () => {
     expect(service).toBeTruthy();
   });
 

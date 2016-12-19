@@ -29,7 +29,7 @@ describe('GreeterComponent', () => {
   });
 
   //specs
-  it('should create GreeterComponent', () => {
+  it('should create an instance of GreeterComponent', () => {
     expect(greeter).toBeTruthy();
   });
 
