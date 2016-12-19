@@ -3,11 +3,12 @@
 import { TestBed, async, inject } from '@angular/core/testing';
 import { LanguagesHttpService } from './languages-http.service';
 import { HttpModule, Response, XHRBackend } from '@angular/http';
-import { MockBackend } from '@angular/http/testing';
+import { MockBackend, MockConnection } from '@angular/http/testing';
 
 describe('LanguagesHttpService', () => {
   let service: LanguagesHttpService;    // to access properties and methods
   let mockBackend: any;                 // to mock Http backend responses
+  const mockResponse = ["en", "de", "fr"];
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -22,19 +23,16 @@ describe('LanguagesHttpService', () => {
   beforeEach(inject([LanguagesHttpService, XHRBackend], (_service, _mockBackend) => {
     service = _service;
     mockBackend = _mockBackend;
+    mockBackend.connections.subscribe((connection: MockConnection) => {
+      connection.mockRespond(new Response({body: JSON.stringify(mockResponse)}));
+    });
   }));
 
-  it('should create the LanguagesHttpService', () => {
+  it('should create LanguagesHttpService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('should return the available languages (mocked)', async(() => {
-    let response = ["en", "de", "fr"];
-
-    mockBackend.connections.subscribe(connection => {
-      connection.mockRespond(new Response({body: JSON.stringify(response)}));
-    });
-
+  it('should return available languages (mocked)', async(() => {
     service.get().subscribe(languages => {
       expect(languages).toContain('en');
       expect(languages).toContain('de');
