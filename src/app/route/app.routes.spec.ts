@@ -3,6 +3,7 @@ import { Routes, RouterModule, Router } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { APP_BASE_HREF } from '@angular/common';
 
 @Component({
   selector: 'my-app',
@@ -27,7 +28,7 @@ export const routes: Routes = [
 @NgModule({
   imports: [BrowserModule, RouterModule.forRoot(routes)],
   declarations: [TestComponent, Home],
-  bootstrap: [Home],
+  bootstrap: [TestComponent],
   exports: [TestComponent]
 })
 export class AppModule {
@@ -35,21 +36,21 @@ export class AppModule {
 
 describe('Router tests', () => {
   let fixture: ComponentFixture<TestComponent>;
+  let router: Router;
 
   //setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule.withRoutes(routes), AppModule]
-    }).compileComponents();
+      imports: [RouterTestingModule.withRoutes(routes), AppModule],
+      providers: [{provide: APP_BASE_HREF, useValue: '/'}]
+    }).compileComponents().then(() => {
+      fixture = TestBed.createComponent(TestComponent);
+      router = TestBed.get(Router);
+    });
   }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(TestComponent);
-  });
 
   //specs
   it('default route redirects home (async)', async(() => {
-    const router = TestBed.get(Router);
     router.initialNavigation() // triggers default navigation
 
     fixture.whenStable().then(() => {
