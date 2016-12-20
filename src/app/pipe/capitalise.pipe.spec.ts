@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { CapitalisePipe } from './capitalise.pipe';
 
 describe('CapitalisePipe', () => {
@@ -17,7 +17,7 @@ describe('CapitalisePipe', () => {
     pipe = p;
   }));
 
-  //specs
+  // specs
   it('should create an instance of CapitalisePipe', () => {
     expect(pipe).toBeTruthy();
   });

@@ -19,7 +19,7 @@ describe('LogClicksDirective', () => {
   let testComponent: TestComponent;   // to access properties and methods
   let domElement: any;                // to access the DOM element
 
-  //setup
+  // setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [TestComponent, LogClicksDirective]
@@ -30,12 +30,12 @@ describe('LogClicksDirective', () => {
     });
   }));
 
-  //specs
+  // specs
   it('should create create an instance of TestComponent', () => {
     expect(testComponent).toBeTruthy();
   });
 
-  it('should increment the counter', fakeAsync(() => {
+  it('should increment the counter (fakeAsync/tick)', fakeAsync(() => {
     let div = domElement.querySelector('div');
 
     testComponent.changes.subscribe(x => {

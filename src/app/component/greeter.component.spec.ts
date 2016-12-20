@@ -4,7 +4,6 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { GreeterComponent } from './greeter.component';
-import { element } from 'protractor';
 
 describe('GreeterComponent', () => {
   let fixture: ComponentFixture<GreeterComponent>;
@@ -14,7 +13,7 @@ describe('GreeterComponent', () => {
 
   const correctText = 'Hello World!';
 
-  //setup
+  // setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [GreeterComponent]
@@ -26,7 +25,7 @@ describe('GreeterComponent', () => {
     });
   }));
 
-  //specs
+  // specs
   it('should create an instance of GreeterComponent', () => {
     expect(greeter).toBeTruthy();
   });

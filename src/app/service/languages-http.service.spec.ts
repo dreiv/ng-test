@@ -1,6 +1,6 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { LanguagesHttpService } from './languages-http.service';
 import { HttpModule, Response, XHRBackend, ResponseOptions } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
@@ -10,7 +10,7 @@ describe('LanguagesHttpService', () => {
   let mockBackend: any;                 // to mock Http backend responses
   const mockResponse = ["en", "de", "fr"];
 
-  //setup
+  // setup
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpModule],
@@ -29,7 +29,7 @@ describe('LanguagesHttpService', () => {
     });
   }));
 
-  //specs
+  // specs
   it('should create an instance of LanguagesHttpService', () => {
     expect(service).toBeTruthy();
   });

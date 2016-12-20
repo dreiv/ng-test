@@ -1,12 +1,12 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
+import { TestBed, inject } from '@angular/core/testing';
 import { LanguagesService } from './languages.service';
 
 describe('LanguagesService', () => {
   let service: LanguagesService;    // to access properties and methods
 
-  //setup
+  // setup
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [LanguagesService]
@@ -17,7 +17,7 @@ describe('LanguagesService', () => {
     service = s;
   }));
 
-  //specs
+  // specs
   it('should create an instance of LanguagesService', () => {
     expect(service).toBeTruthy();
   })
