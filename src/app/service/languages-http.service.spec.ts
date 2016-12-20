@@ -6,7 +6,7 @@ import { HttpModule, Response, XHRBackend, ResponseOptions } from '@angular/http
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
 describe('LanguagesHttpService', () => {
-  let service: LanguagesHttpService;    // to access properties and methods
+  let service: LanguagesHttpService;
   let mockBackend: any;                 // to mock Http backend responses
   const mockResponse = ["en", "de", "fr"];
 
