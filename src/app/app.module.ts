@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { GreeterComponent } from './component/greeter.component';
 import { LogClicksDirective } from './directive/log-clicks.directive';
 import { CapitalisePipe } from './pipe/capitalise.pipe';
+import { TrialComponent } from './trial/trial.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     GreeterComponent,
     LogClicksDirective,
-    CapitalisePipe
+    CapitalisePipe,
+    TrialComponent
   ],
   imports: [
     BrowserModule,
