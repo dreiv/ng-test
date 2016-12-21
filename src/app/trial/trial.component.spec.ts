@@ -1,8 +1,7 @@
-import { TrialComponent } from './trial.component';
-import { TestBed, ComponentFixture, async, fakeAsync, tick } from '@angular/core/testing';
-import { Observable } from 'rxjs';
-import { HelloService } from './hello.service';
-import { HttpModule } from '@angular/http';
+import {TrialComponent} from "./trial.component";
+import {TestBed, ComponentFixture, async} from "@angular/core/testing";
+import {Observable} from "rxjs";
+import {HelloService} from "./hello.service";
 
 class MockHelloService {
   get(): Observable<any> {
@@ -18,17 +17,20 @@ describe('TrialComponent', () => {
   // setup
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [HttpModule],
-      declarations: [TrialComponent],
-      providers: [
-        {provide: HelloService, useClass: MockHelloService}
-      ]
-    }).compileComponents().then(() => {
-      fixture = TestBed.createComponent(TrialComponent);
-      component = fixture.componentInstance;
-      element = fixture.nativeElement;
+      declarations: [TrialComponent]
+    }).overrideComponent(TrialComponent, {
+      set: {
+        providers: [
+          {provide: HelloService, useClass: MockHelloService}
+        ]
+      }
     });
   }));
+  beforeEach(() => {
+    fixture = TestBed.createComponent(TrialComponent);
+    component = fixture.componentInstance;
+    element = fixture.nativeElement;
+  });
 
   // specs
   it('should create an instance of TrialComponent', () => {
