@@ -5,7 +5,7 @@ import { HelloService } from './hello.service';
 import { HttpModule, XHRBackend, ResponseOptions, Response } from '@angular/http';
 import { MockBackend, MockConnection } from '@angular/http/testing';
 
-fdescribe('HelloService', () => {
+describe('HelloService', () => {
   let service: HelloService;
   let mockBackend: any;       // to mock Http backend responses
   let mockResponse: string = "hello";
